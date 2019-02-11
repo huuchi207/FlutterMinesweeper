@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_minesweeper/board_square.dart';
-
+import 'package:flutter_minesweeper/purchase_screen.dart';
 // Types of images available
 enum ImageType {
   zero,
@@ -148,6 +148,16 @@ class _GameActivityState extends State<GameActivity> {
             itemCount: rowCount * columnCount,
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.shopping_cart),
+          backgroundColor: Colors.red,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => PurchaseScreen()),
+            );
+          }
       ),
     );
   }
