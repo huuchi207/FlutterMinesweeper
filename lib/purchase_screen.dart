@@ -20,6 +20,16 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
           'product_id_7',
           'product_id_8',
           'product_id_9',
+          'product_id_10',
+          'product_id_11',
+          'product_id_12',
+          'product_id_13',
+          'product_id_14',
+          'product_id_15',
+          'product_id_16',
+          'product_id_17',
+          'product_id_18',
+          'product_id_19',
         ]
       : ['com.cooni.point1000', 'com.cooni.point5000'];
   String _platformVersion = 'Unknown';
