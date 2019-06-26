@@ -20,20 +20,20 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
     'product_id_7',
     'product_id_8',
     'product_id_9',
-    'product_id_10',
-    'subcription_id_1',
-    'subcription_id_2',
-    'subcription_id_3',
-    'subcription_id_4',
-    'subcription_id_5',
-    'subcription_id_6',
-    'subcription_id_7',
-    'subcription_id_8',
-    'subcription_id_9',
-    'subcription_id_10',
+    'product_id_10'
 
   ]
       : ['com.cooni.point1000', 'com.cooni.point5000'];
+  final List<String> _subscriptionLists = [ 'subcription_id_1',
+  'subcription_id_2',
+  'subcription_id_3',
+  'subcription_id_4',
+  'subcription_id_5',
+  'subcription_id_6',
+  'subcription_id_7',
+  'subcription_id_8',
+  'subcription_id_9',
+  'subcription_id_10'];
   String _platformVersion = 'Unknown';
   List<IAPItem> _items = [];
 
@@ -107,11 +107,13 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
 
   Future<Null> _getProduct() async {
     List<IAPItem> items = await FlutterInappPurchase.getProducts(_productLists);
+    List<IAPItem> subscriptionItems = await FlutterInappPurchase.getSubscriptions(_subscriptionLists);
+
+    items.addAll(subscriptionItems);
     for (var item in items) {
 //      print('${item.toString()}');
       this._items.add(item);
     }
-
     setState(() {
       this._items = items;
     });
